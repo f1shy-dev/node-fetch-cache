@@ -33,6 +33,10 @@ export class MemoryCache {
     this.keyTimeout.clearTimeout(key);
     delete this.cache[key];
   }
+  
+  clear() {
+    this.cache = {};
+  }
 
   async set(key, bodyStream, metaData) {
     const bodyBuffer = await streamToBuffer(bodyStream);
